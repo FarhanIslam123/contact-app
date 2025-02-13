@@ -1,5 +1,3 @@
-
-
 var contacts=localStorage.getItem("info");
 contacts=JSON.parse(contacts)
 // const ids=contacts.map((contact)=>contact.newId)
@@ -23,6 +21,7 @@ const deleteContact=(e)=>{
     console.log(dltCntctId);
     let notDltCntct=contacts.filter((contact)=>contact.newId!==dltCntctId);
     localStorage.setItem('info',JSON.stringify(notDltCntct))
+    contacts=notDltCntct;
     ul.removeChild(dltCntct)
     setTimeout(()=>{
         alert("The contact is deleted")
@@ -47,6 +46,6 @@ form.addEventListener('submit',(e)=>{
     e.preventDefault()
     let searchContact=contacts.filter((contact)=>contact.fullName.toLowerCase().includes(inp.toLowerCase()))
     localStorage.setItem('searched',JSON.stringify(searchContact))
+    inp.value='';
 window.location='./search/search.html'
-
 })
