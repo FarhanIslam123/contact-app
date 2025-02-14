@@ -11,8 +11,7 @@ form{
     border: 1px solid gray;
     padding: 0.3rem;
     background-color: lightblue;
-
-
+    box-shadow: rgb(217, 252, 201) 10px 12px 12px 10px;
 }
 #searchFill{
     border-radius: 1rem;
