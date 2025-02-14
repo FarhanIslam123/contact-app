@@ -11,7 +11,8 @@ try {
     const contact= contacts.map((contact)=>{
         let li=document.createElement("li");
         li.id=contact.newId;
-        li.innerHTML=`<span> <i class="fa fa-address-card" aria-hidden="true"></i> </br> <strong> Name:</strong> ${contact.fullName} </br> <strong> Phone:</strong> ${contact.phone} </span>
+        li.innerHTML=`<span> <i class="fa fa-address-card" aria-hidden="true"></i> </br> <strong> Name:</strong> ${contact.fullName} </br>
+        <strong> Phone:</strong> ${contact.phone} </br> <strong>Email:</strong> ${contact.email} </span>
         <span> <button class='dltBtn'>
         <i class="fa fa-trash fa-2x" aria-hidden="true" ></i>
         </button > </span>`

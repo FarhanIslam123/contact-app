@@ -14,7 +14,7 @@ if (searched==='[]'||searched===null) {
         let li=document.createElement("li");
         li.id=search.newId;
         li.innerHTML=`<span> <i class="fa fa-address-card" aria-hidden="true"></i> </br> <strong> Name:</strong> ${search.fullName} 
-        </br> <strong> Phone:</strong> ${search.phone} </span>
+        </br> <strong> Phone:</strong> ${search.phone} </br> <strong>Email:</strong> ${search.email} </span>
         <span> <button class='dltBtn'>
         <i class="fa fa-trash fa-2x" aria-hidden="true" ></i>
         </button > </span>`
