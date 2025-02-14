@@ -103,6 +103,14 @@ li{
     margin-top: 1rem;
 }
 
+/* dynamic class */
+.forNoItem{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: red;
+}
 
 /*! Mobile Responsiveness using Media Queries 768*/
 @media only screen and (max-width: 500px) {

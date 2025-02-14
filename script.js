@@ -3,15 +3,24 @@ contacts=JSON.parse(contacts)
 // const ids=contacts.map((contact)=>contact.newId)
 // console.log(ids);
 const ul=document.querySelector("ul");
-const contact= contacts.map((contact)=>{
-    let li=document.createElement("li");
-    li.id=contact.newId;
-    li.innerHTML=`<span> <i class="fa fa-address-card" aria-hidden="true"></i> </br> <strong> Name:</strong> ${contact.fullName} </br> <strong> Phone:</strong> ${contact.phone} </span>
-    <span> <button class='dltBtn'>
-    <i class="fa fa-trash fa-2x" aria-hidden="true" ></i>
-    </button > </span>`
-    ul.appendChild(li)}
-)
+try {
+  if (contacts===null || contacts.length===0){
+    ul.innerHTML=`<li> <h1> No contact found!</h1> </li>` 
+    ul.classList.add("forNoItem")
+  }else{
+    const contact= contacts.map((contact)=>{
+        let li=document.createElement("li");
+        li.id=contact.newId;
+        li.innerHTML=`<span> <i class="fa fa-address-card" aria-hidden="true"></i> </br> <strong> Name:</strong> ${contact.fullName} </br> <strong> Phone:</strong> ${contact.phone} </span>
+        <span> <button class='dltBtn'>
+        <i class="fa fa-trash fa-2x" aria-hidden="true" ></i>
+        </button > </span>`
+        ul.appendChild(li)}
+    )
+  }
+} catch (error) {
+    console.log(error.massege);
+}
 
 // ! delete contsct
 const dltBtn=document.querySelectorAll(".dltBtn");

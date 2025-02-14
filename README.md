@@ -1,22 +1,45 @@
-
 # Contact App
 
-This is a simple contact information management app built using **HTML**, **CSS**, and **JavaScript**. The app allows users to save and manage contact details, such as names, phone numbers, and email addresses.
+This is a simple contact management application.
 
 ## Features
 
-- Add new contacts with name, phone, and email
-- View saved contacts
+- Add new contacts
+- Edit existing contacts
 - Delete contacts
-
-## Technologies Used
-
-- **HTML**: Structure of the web app
-- **CSS**: Styling and layout
-- **JavaScript**: Functionality and dynamic interaction with contact data
+- View all contacts
 
 ## Installation
 
-1. Clone this repository to your local machine:
-   ```bash
-   git clone https://github.com/FarhanIslam123/contact-app.git
+1. Clone the repository:
+    ```sh
+    git clone https://github.com/FarhanIslam123/contact-app.git
+    ```
+2. Navigate to the project directory:
+    ```sh
+    cd contact-app
+    ```
+3. Install the dependencies:
+    ```sh
+    npm install
+    ```
+
+## Usage
+
+1. Start the application:
+    ```sh
+    npm start
+    ```
+2. Open your browser and go to `http://localhost:3000`
+
+## Contributing
+
+1. Fork the repository
+2. Create a new branch (`git checkout -b feature-branch`)
+3. Commit your changes (`git commit -am 'Add new feature'`)
+4. Push to the branch (`git push origin feature-branch`)
+5. Create a new Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
