@@ -1,61 +1,84 @@
-var contacts=localStorage.getItem("info");
-contacts=JSON.parse(contacts)
-// const ids=contacts.map((contact)=>contact.newId)
-// console.log(ids);
-const ul=document.querySelector("ul");
-try {
-  if (contacts===null || contacts.length===0){
-    ul.innerHTML=`<li> <h1> No contact found!</h1> </li>` 
-    ul.classList.add("forNoItem")
-  }else{
-    const contact= contacts.map((contact)=>{
-        let li=document.createElement("li");
-        li.id=contact.newId;
-        li.innerHTML=`<span> <i class="fa fa-address-card" aria-hidden="true"></i> </br> <strong> Name:</strong> ${contact.fullName} </br>
-        <strong> Phone:</strong> ${contact.phone} </br> <strong>Email:</strong> ${contact.email} </span>
-        <span> <button class='dltBtn'>
-        <i class="fa fa-trash fa-2x" aria-hidden="true" ></i>
-        </button > </span>`
-        ul.appendChild(li)}
-    )
+// start getting element 
+
+// login form
+const loginForm =document.querySelector('.loginForm');
+const logEmail =loginForm.querySelector('.input[name=email]');
+const logPass =loginForm.querySelector('.input[name=password]') 
+// register from 
+const registerForm =document.querySelector('.registerForm') ;
+const registerUser = registerForm.querySelector('input[name=txt]')
+const registerEmail =registerForm.querySelector('.input[name=email]')
+const registerPass =document.querySelector('.input[name=pswd]') 
+
+//end getting element 
+// register 
+document.querySelector('.registerButton').addEventListener('click',(e)=>{
+  console.log('hi')
+  e.preventDefault();
+  if (!registerForm.checkValidity()) {
+   registerForm.reportValidity();
+   return
   }
-} catch (error) {
-    console.log(error.massege);
-}
+  localStorage.setItem('username',registerUser.value)
+  localStorage.setItem('email',registerEmail.value)
+  localStorage.setItem('pass',registerPass.value)
+  registerUser.value='',
+  registerPass.value='',
+  registerEmail.value=''
+  saveRegisterData();
+})
 
-// ! delete contsct
-const dltBtn=document.querySelectorAll(".dltBtn");
-const deleteContact=(e)=>{
-    let dltCntct= e.target.closest("li");
-    const dltCntctId=dltCntct.id;
-    console.log(dltCntctId);
-    let notDltCntct=contacts.filter((contact)=>contact.newId!==dltCntctId);
-    localStorage.setItem('info',JSON.stringify(notDltCntct))
-    contacts=notDltCntct;
-    ul.removeChild(dltCntct)
+
+//add listener with login button
+document.querySelector('.loginButton').addEventListener('click',(e)=>{
+  e.preventDefault();
+  if (!loginForm.checkValidity()) {
+    loginForm.reportValidity()
+    return
+  }
+  verifyData();
+  logEmail.value='';
+  logPass.value=''
+})
+const saveRegisterData =()=>{
+  const container= document.querySelector('.container').classList.add('fade-out')
     setTimeout(()=>{
-        alert("The contact is deleted")
-    },100)
+ window.location.href = './contact/contact.html';
+    },1000)
 }
-dltBtn.forEach((btn) => {
-    btn.addEventListener("click",(e)=>{
-        let confirmation=confirm("You are sure?");
-        confirmation==true?deleteContact(e) :console.log('not');
-        })
-});
 
-// ! for new contact
-document.querySelector('.fa-plus').addEventListener('click',()=>{
-window.location='./newContact/newContact.html'
-})
-
-// ! search a contact
-const form=document.querySelector('form');
-form.addEventListener('submit',(e)=>{
-    let inp= form.querySelector('input').value;
-    e.preventDefault()
-    let searchContact=contacts.filter((contact)=>contact.fullName.toLowerCase().includes(inp.toLowerCase()))
-    localStorage.setItem('searched',JSON.stringify(searchContact))
-    inp.value='';
-window.location='./search/search.html'
-})
+const verifyData = () => {
+  //getting data from localstorage
+const username=localStorage.getItem('username')
+const password=localStorage.getItem('pass')
+const email=localStorage.getItem('email');
+  const userInfo = {
+    logEmail: logEmail.value,
+    logPass: logPass.value
+  }
+ // Check if the email and password match
+  if (userInfo.logEmail === 'ripon@gmail.com' && userInfo.logPass === '123456' ) {
+    console.log('success');
+    // Redirect to another folder or page
+   const container= document.querySelector('.container').classList.add('fade-out')
+    setTimeout(()=>{
+ window.location.href = './contact/contact.html';
+    },1000)
+   
+  }
+  else if (userInfo.logEmail===email && userInfo.logPass===password) {
+    console.log('yes')
+    const container= document.querySelector('.container').classList.add('fade-out')
+    setTimeout(()=>{
+ window.location.href = './contact/contact.html';
+    },1000)
+   
+  }
+  else {
+    alert('Invalid email or password');
+    // Tab to edit or show error message
+  }
+}
+  
+  
+ 

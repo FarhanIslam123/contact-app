@@ -4,7 +4,7 @@ const btn=document.querySelector('.save');
 //! new window
 const newWindow=()=>{
     setTimeout(()=>{
-        window.location.href="../index.html"
+        window.location.href="../contact/contact.html"
     },100)
     
 }

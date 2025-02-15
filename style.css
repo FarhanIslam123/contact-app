@@ -1,190 +1,133 @@
 *{
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-form{
-    display: grid;
-    grid-template-columns: auto auto auto auto auto;
-    grid-gap: 10px;
-    margin:1.5rem 1rem ;
-    border-radius:2.5rem 1rem;
-    border: 1px solid gray;
-    padding: 0.3rem;
-    background-color: lightblue;
-    box-shadow: rgb(217, 252, 201) 10px 12px 12px 10px;
+body{
+  font-family: Verdana, Geneva, Tahoma, sans-serif ;
 }
-#searchFill{
-    border-radius: 1rem;
-    padding: 0.5rem 0rem 0.5rem 0.5rem;
-    cursor: pointer;
-    grid-column: 2/3;
+.container{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #e8e8e8;
 }
-#searchFill:hover{
-    border-radius: 1rem;
-    padding: 0.5rem 0rem 0.5rem 0.5rem;
-    cursor: pointer;
-    grid-column: 2/3;
-    background-color: rgb(217, 252, 201);
-    font-weight: bold;
+.main{
+  height: 465px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  background:#240046 ;
+  max-width:450px ;
+  width:400px;
+  overflow: hidden;
+  border-radius: 12px;
+  box-shadow: rgba(50, 0, 130, 0.442) 0px 30px 90px;
 }
-#searchBtn{
-    border-radius: 0.8rem;
-    padding: 0.5rem 0rem;
-    cursor: pointer;
-    grid-column: 3/5;
-}
-#searchBtn:hover{
-    background-color: aqua;
-    border-radius: 0.8rem;
-    padding: 0.5rem 0rem;
-    cursor: pointer;
-    grid-column: 3/5;
-    font-weight: bold;
-}
-.new{
-    text-align: right;
-    margin-right: 0.8rem;
+.form{
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 24px;
+  
 }
 
-/* ! show saved contacts list */
-.showSaveContacts{
-    height: 100%;
-    margin-top: 1.5rem;
-    /* align-items: center;
-    align-content: center; */
-    padding:1rem;
+/* checkbox to switch from sing up to login */
+
+#chk{
+  display: none;
+}
+/* login */
+.login{
+  position: relative;
+  height: 100%;
+  width: 100%;
+}
+.login label{
+  margin: 5% 0% 5%
+}
+label{
+  color: #fff;
+  font-size:2rem;
+  justify-content: center;
+  display: flex;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.5s ease-in-out;
+}
+.input{
+  width: 100%;
+  height: 40px;
+  background: #e0dede;
+  font-size: 1rem;
+  padding: 10px;
+  margin-top:15px;
+  border: none;
+  outline: none;
+  border-radius: 4px;
+}
+/* register*/
+
+.register{
+  background: #eee;
+  border-radius: 60% / 10%;
+  transition: 0.8s ease-in-out;
+} 
+.register label{
+  color: #573b8a;
+  transform: scale(0.6)
 }
 
-/* ?for dynamic class */
-.dynamicDiv{
-border: 1px solid rgb(127, 65, 197);
-background-color: antiquewhite;
-border-radius: 1rem;
-padding: 0.1rem 0.3rem 0.6rem 2rem;
+#chk:checked ~ .register{
+  transform: translateY(-68%)
 }
-.dynamicDlt{
-    font-weight: bold;
-    font-family:'Times New Roman', Times, serif;
-    cursor: pointer;
-    padding: 0.3rem 1rem;
-    border-radius: 0.5rem;
+#chk:checked ~ .register label{
+  transform: scale(1);
+  margin-bottom: 0.5rem
 }
-.dynamicDltHover{
-    cursor: pointer;
-    padding: 0.3rem 1rem;
-    border-radius: 0.5rem;
-    background-color: brown;
-}
-ul{
-    margin-top: 2rem;
-}
-li{
-    list-style: none;
-    display: flex;
-    justify-content: space-between;
-    margin: 0.5rem 4.5rem;
-    padding: 1.2rem 2.5rem;
-    background-color: antiquewhite;
-    border-radius: 1rem;
-    box-shadow:rgba(70, 60, 100, 120) 10px 15px 20px 1px;
-}
-.fa-trash:hover{
-    cursor: pointer;
-    color:red;
-}
-.fa-plus{
-    color: blue;
-}
-.fa-plus:hover{
-    color:green;
-}
-.dltBtn{
-    margin-top: 1rem;
+#chk:checked ~ .login label{
+  transform: scale(0.6);
 }
 
-/* dynamic class */
-.forNoItem{
-    text-align: center;
-    margin-top: 1rem;
-    font-size: 1.5rem;
-    font-weight: bold;
-    color: red;
+.form button{
+  width: 70%;
+  height: 40px;
+  margin: 15px auto 10%;
+  color: #fff;
+  background: #573b8a;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-right: 4px;
+  cursor: pointer;
+  transition: 0.2s ease-in;
+}
+.form button:hover{
+color: #6d44b8;
+  
 }
 
-/*! Mobile Responsiveness using Media Queries 768*/
-@media only screen and (max-width: 500px) {
-    form {
-        grid-template-columns: auto auto; /* Change to 2 columns */
-        margin: 1rem;
-        padding: 1rem;
-    }
-
-    #searchFill {
-        grid-column: 1/2; /* Adjust position for mobile */
-        padding: 0.5rem;
-    }
-
-    #searchBtn {
-        grid-column: 2/3; /* Adjust position for mobile */
-        padding: 0.5rem;
-    }
-
-    .showSaveContacts {
-        padding: 0.5rem;
-    }
-
-    .dynamicDiv {
-        padding: 0.5rem;
-    }
-
-    li {
-        margin: 0.5rem 1rem; /* Reduce margin for better mobile layout */
-        padding: 1rem;
-    }
-
-    ul {
-        margin-top: 1rem;
-    }
-    #searchFill:hover{
-        border-radius: 1rem;
-        padding: 0.5rem 0rem 0.5rem 0.5rem;
-        cursor: pointer;
-        grid-column: 1/2;
-        background-color: rgb(217, 252, 201);
-        font-weight: bold;
-    }
-    #searchBtn:hover{
-        background-color: aqua;
-        border-radius: 0.8rem;
-        cursor: pointer;
-        grid-column: 2/3;
-        font-weight: bold;
-    }
+/* animation*/
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+    filter: blur(0px); /* No blur at the start */
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(0.9) rotate(1deg);
+    filter: blur(2px); /* Slight blur in the middle */
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.7) rotate(1deg);
+    filter: blur(5px); /* More blur as it fades out */
+  }
 }
 
-@media only screen and (max-width: 480px) {
-    form {
-        grid-template-columns: auto; /* 1 column layout for small screens */
-    }
-
-    #searchFill, #searchBtn {
-        grid-column: 1/2; /* Centering elements in 1 column */
-        padding: 0.5rem;
-    }
-    #searchFill:hover, #searchBtn:hover {
-        grid-column: 1/2; /* Centering elements in 1 column */
-        padding: 0.5rem;
-    }
-    li {
-        margin: 0.5rem;
-        padding: 1rem;
-    }
-
-    .new {
-        text-align: center; /* Center the new button on small screens */
-    }
-
-    .dynamicDiv {
-        padding: 0.5rem 0.3rem;
-    }
+.container.fade-out {
+  animation: fadeOut 1s forwards;
 }

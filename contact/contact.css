@@ -1,0 +1,190 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+form{
+    display: grid;
+    grid-template-columns: auto auto auto auto auto;
+    grid-gap: 10px;
+    margin:1.5rem 1rem ;
+    border-radius:2.5rem 1rem;
+    border: 1px solid gray;
+    padding: 0.3rem;
+    background-color: lightblue;
+    box-shadow: rgb(217, 252, 201) 10px 12px 12px 10px;
+}
+#searchFill{
+    border-radius: 1rem;
+    padding: 0.5rem 0rem 0.5rem 0.5rem;
+    cursor: pointer;
+    grid-column: 2/3;
+}
+#searchFill:hover{
+    border-radius: 1rem;
+    padding: 0.5rem 0rem 0.5rem 0.5rem;
+    cursor: pointer;
+    grid-column: 2/3;
+    background-color: rgb(217, 252, 201);
+    font-weight: bold;
+}
+#searchBtn{
+    border-radius: 0.8rem;
+    padding: 0.5rem 0rem;
+    cursor: pointer;
+    grid-column: 3/5;
+}
+#searchBtn:hover{
+    background-color: aqua;
+    border-radius: 0.8rem;
+    padding: 0.5rem 0rem;
+    cursor: pointer;
+    grid-column: 3/5;
+    font-weight: bold;
+}
+.new{
+    text-align: right;
+    margin-right: 0.8rem;
+}
+
+/* ! show saved contacts list */
+.showSaveContacts{
+    height: 100%;
+    margin-top: 1.5rem;
+    /* align-items: center;
+    align-content: center; */
+    padding:1rem;
+}
+
+/* ?for dynamic class */
+.dynamicDiv{
+border: 1px solid rgb(127, 65, 197);
+background-color: antiquewhite;
+border-radius: 1rem;
+padding: 0.1rem 0.3rem 0.6rem 2rem;
+}
+.dynamicDlt{
+    font-weight: bold;
+    font-family:'Times New Roman', Times, serif;
+    cursor: pointer;
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+}
+.dynamicDltHover{
+    cursor: pointer;
+    padding: 0.3rem 1rem;
+    border-radius: 0.5rem;
+    background-color: brown;
+}
+ul{
+    margin-top: 2rem;
+}
+li{
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    margin: 0.5rem 4.5rem;
+    padding: 1.2rem 2.5rem;
+    background-color: antiquewhite;
+    border-radius: 1rem;
+    box-shadow:rgba(70, 60, 100, 120) 10px 15px 20px 1px;
+}
+.fa-trash:hover{
+    cursor: pointer;
+    color:red;
+}
+.fa-plus{
+    color: blue;
+}
+.fa-plus:hover{
+    color:green;
+}
+.dltBtn{
+    margin-top: 1rem;
+}
+
+/* dynamic class */
+.forNoItem{
+    text-align: center;
+    margin-top: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: red;
+}
+
+/*! Mobile Responsiveness using Media Queries 768*/
+@media only screen and (max-width: 500px) {
+    form {
+        grid-template-columns: auto auto; /* Change to 2 columns */
+        margin: 1rem;
+        padding: 1rem;
+    }
+
+    #searchFill {
+        grid-column: 1/2; /* Adjust position for mobile */
+        padding: 0.5rem;
+    }
+
+    #searchBtn {
+        grid-column: 2/3; /* Adjust position for mobile */
+        padding: 0.5rem;
+    }
+
+    .showSaveContacts {
+        padding: 0.5rem;
+    }
+
+    .dynamicDiv {
+        padding: 0.5rem;
+    }
+
+    li {
+        margin: 0.5rem 1rem; /* Reduce margin for better mobile layout */
+        padding: 1rem;
+    }
+
+    ul {
+        margin-top: 1rem;
+    }
+    #searchFill:hover{
+        border-radius: 1rem;
+        padding: 0.5rem 0rem 0.5rem 0.5rem;
+        cursor: pointer;
+        grid-column: 1/2;
+        background-color: rgb(217, 252, 201);
+        font-weight: bold;
+    }
+    #searchBtn:hover{
+        background-color: aqua;
+        border-radius: 0.8rem;
+        cursor: pointer;
+        grid-column: 2/3;
+        font-weight: bold;
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    form {
+        grid-template-columns: auto; /* 1 column layout for small screens */
+    }
+
+    #searchFill, #searchBtn {
+        grid-column: 1/2; /* Centering elements in 1 column */
+        padding: 0.5rem;
+    }
+    #searchFill:hover, #searchBtn:hover {
+        grid-column: 1/2; /* Centering elements in 1 column */
+        padding: 0.5rem;
+    }
+    li {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+
+    .new {
+        text-align: center; /* Center the new button on small screens */
+    }
+
+    .dynamicDiv {
+        padding: 0.5rem 0.3rem;
+    }
+}
